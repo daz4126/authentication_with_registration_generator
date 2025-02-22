@@ -1,8 +1,14 @@
 # RegistrationGenerator
 
-TODO: Delete this and the text below, and describe your gem
+A Rails Generator that adds registration pages to the Authentication Generator as well as some useful routes and helper methods.
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/registration_generator`. To experiment with that code, run `bin/console` for an interactive prompt.
+* Adds a registration page which will create a new user with an email address and password.
+* Adds `new_registration_path` and `registration_path` routes
+* Adds a registration link on the sign_in page
+* Adds '/sign_in' and '/sign_out' routes as alias to '/session/new' and 'session', these can be accessed using the `sign_in_path` and `sign_out_path, method: :delete` helpers
+* Adds a `link_to_sign_in_or_out` helper that will display a sign out or sign in link depending on if a user is authenticated or not
+* Adds a `show_username_if_signed_in` method that displays a "signed in as username" message if the user is signed in
+* Adds a `name` method to the user model that is an alias for the email_address, but can be changed
 
 ## Installation
 
@@ -10,15 +16,25 @@ TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_O
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ bundle add registration_generator
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG
+    $ gem install registration_generator
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Write usage instructions hereRun the authentication generator first:
+
+```bash
+rails generate authentication
+```
+
+Then run the registration generator:
+
+```bash
+rails generate registration
+```
 
 ## Development
 
@@ -28,7 +44,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/registration_generator.
+Bug reports and pull requests are welcome on GitHub at https://github.com/daz4126/registration_generator.
 
 ## License
 
