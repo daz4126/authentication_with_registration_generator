@@ -22,8 +22,6 @@ If bundler is not being used to manage dependencies, install the gem by executin
 
 ## Usage
 
-TODO: Write usage instructions hereRun the authentication generator first:
-
 ```bash
 rails generate authentication
 ```
