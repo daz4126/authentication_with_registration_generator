@@ -36,9 +36,9 @@ module RegistrationGenerator
       end
     end
 
-    def show_username_if_signed_in
+    def show_username_if_signed_in(text="Signed in as")
       if authenticated?
-        content = "Signed in as #{Current.user.name}"
+        content = "#{text} #{Current.user.name}"
         content.html_safe
       end
     end
