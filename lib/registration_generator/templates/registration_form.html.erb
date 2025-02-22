@@ -1,0 +1,21 @@
+<h1>Registration</h1>
+
+<%%= form_with model: @user, url: registration_path do |f| %>
+  <%% if @user.errors.any? %>
+    <div>
+      <%%= @user.errors.full_messages.to_sentence %>
+    </div>
+  <%% end %>
+
+  <div>
+    <%%= f.label :email_address %>
+    <%%= f.email_field :email_address %>
+  </div>
+
+  <div>
+    <%%= f.label :password %>
+    <%%= f.password_field :password %>
+  </div>
+
+  <%%= f.submit "Register" %>
+<%% end %>

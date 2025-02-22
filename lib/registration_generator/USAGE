@@ -1,0 +1,10 @@
+Description:
+    Creates registration pages for the authentication generator
+
+Example:
+    bin/rails generate registration
+
+    This will create:
+        regisistration routes
+        new registration view
+        registrations controller
