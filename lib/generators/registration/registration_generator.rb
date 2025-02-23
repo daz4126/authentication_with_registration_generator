@@ -19,35 +19,37 @@ module Registration
 
     def add_routes
       route "resource :registration, only: [:new, :create]"
-      route "get 'sign_in', to: 'session#new', as :sign_in"
-      route "delete 'sign_out', to: 'session#destroy', as :sign_out"
+      route "get 'sign_in', to: 'sessions#new', as: :sign_in"
+      route "delete 'sign_out', to: 'sessions#destroy', as: :sign_out"
     end
     
     def create_helper
-      create_file "app/helpers/authentication_helper.rb", <<-RUBY
-      module AuthenticationHelper
-        def link_to_sign_in_or_out(show_user: false)
-          if authenticated?
-            button_to "Sign Out", sign_out_path, method: :delete
-          else
-            link_to "Sign In", sign_in_path
+      create_file "app/helpers/authentication_helper.rb", <<~RUBY
+        module AuthenticationHelper
+          def link_to_sign_in_or_out(show_user: false)
+            if authenticated?
+              button_to "Sign Out", sign_out_path, method: :delete
+            else
+              link_to "Sign In", sign_in_path
+            end
+          end
+    
+          def show_username_if_signed_in(text = "Signed in as")
+            if authenticated?
+              content = "\#{text} \#{Current.user.name}"
+              content.html_safe
+            end
           end
         end
-
-        def show_username_if_signed_in(text="Signed in as")
-          if authenticated?
-            content = "#{text} #{Current.user.name}"
-            content.html_safe
-          end
-        end
-      end
       RUBY
     
-      inject_into_class "app/controllers/application_controller.rb", ApplicationController, <<-RUBY
-    
-      include AuthenticationHelper
+      # Inject include statement at the correct place
+      inject_into_class "app/controllers/application_controller.rb", "ApplicationController", <<~RUBY
+        include AuthenticationHelper
       RUBY
     end
+    
+    
 
     def add_name_method_to_user
       inject_into_class "app/models/user.rb", User, <<-RUBY
