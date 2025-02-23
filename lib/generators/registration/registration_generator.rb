@@ -1,6 +1,5 @@
 # lib/registration_generator/generators/registration/registration_generator.rb
 require "rails/generators"
-require "registration_generator/generators/registration/registration_generator"
 
 module RegistrationGenerator
   class RegistrationGenerator < Rails::Generators::Base
