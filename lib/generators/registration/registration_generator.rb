@@ -22,8 +22,7 @@ module Registration
       route "get 'sign_in', to: 'session#new', as :sign_in"
       route "delete 'sign_out', to: 'session#destroy', as :sign_out"
     end
-  end
-
+    
   def create_helper
     create_file "app/helpers/authentication_helper.rb", <<-RUBY
   module AuthenticationHelper
