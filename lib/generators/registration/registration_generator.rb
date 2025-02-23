@@ -23,39 +23,40 @@ module Registration
       route "delete 'sign_out', to: 'session#destroy', as :sign_out"
     end
     
-  def create_helper
-    create_file "app/helpers/authentication_helper.rb", <<-RUBY
-  module AuthenticationHelper
-    def link_to_sign_in_or_out(show_user: false)
-      if authenticated?
-        button_to "Sign Out", sign_out_path, method: :delete
-      else
-        link_to "Sign In", sign_in_path
+    def create_helper
+      create_file "app/helpers/authentication_helper.rb", <<-RUBY
+      module AuthenticationHelper
+        def link_to_sign_in_or_out(show_user: false)
+          if authenticated?
+            button_to "Sign Out", sign_out_path, method: :delete
+          else
+            link_to "Sign In", sign_in_path
+          end
+        end
+
+        def show_username_if_signed_in(text="Signed in as")
+          if authenticated?
+            content = "#{text} #{Current.user.name}"
+            content.html_safe
+          end
+        end
       end
+      RUBY
+    
+      inject_into_class "app/controllers/application_controller.rb", ApplicationController, <<-RUBY
+    
+      include AuthenticationHelper
+      RUBY
     end
 
-    def show_username_if_signed_in(text="Signed in as")
-      if authenticated?
-        content = "#{text} #{Current.user.name}"
-        content.html_safe
+    def add_name_method_to_user
+      inject_into_class "app/models/user.rb", User, <<-RUBY
+    
+      def name
+        email_address
       end
+    
+      RUBY
     end
-  end
-    RUBY
-  
-    inject_into_class "app/controllers/application_controller.rb", ApplicationController, <<-RUBY
-  
-    include AuthenticationHelper
-    RUBY
-  end
-
-  def add_name_method_to_user
-    inject_into_class "app/models/user.rb", User, <<-RUBY
-  
-    def name
-      email_address
-    end
-  
-    RUBY
   end
 end
