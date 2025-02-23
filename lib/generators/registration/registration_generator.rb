@@ -1,7 +1,7 @@
-# lib/registration_generator/generators/registration/registration_generator.rb
+# lib/generators/registration/registration_generator.rb
 require "rails/generators"
 
-module RegistrationGenerator
+module Registration
   class RegistrationGenerator < Rails::Generators::Base
     source_root File.expand_path("templates", __dir__)
 
