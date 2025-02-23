@@ -6,21 +6,22 @@ module Registration
     source_root File.expand_path("templates", __dir__)
 
     def create_view
-      template 'registration_form.html.erb', "app/views/registrations/new.html.erb"
+      template "registration_form.html.erb", "app/views/registrations/new.html.erb"
     end
 
     def create_sign_in
-      template 'sign_in_form.html.erb', "app/views/sessions/new.html.erb", force: true
+      template "sign_in_form.html.erb", "app/views/sessions/new.html.erb", force: true
     end
 
     def create_controller
-      template 'registrations_controller.rb', "app/controllers/registrations_controller.rb"
+      template "registrations_controller.rb", "app/controllers/registrations_controller.rb"
     end
 
     def add_routes
+      route "root \"/\""
       route "resource :registration, only: [:new, :create]"
-      route "get 'sign_in', to: 'sessions#new', as: :sign_in"
-      route "delete 'sign_out', to: 'sessions#destroy', as: :sign_out"
+      route "get \"sign_in\", to: \"sessions#new\", as: :sign_in"
+      route "delete \"sign_out\", to: \"sessions#destroy\", as: :sign_out"
     end
     
     def create_helper
@@ -34,9 +35,9 @@ module Registration
             end
           end
     
-          def show_username_if_signed_in(text = "Signed in as")
+          def show_username_if_signed_in
             if authenticated?
-              content = "\#{text} \#{Current.user.name}"
+              content = "Signed in as \#{Current.user.email_address}"
               content.html_safe
             end
           end
@@ -46,18 +47,6 @@ module Registration
       # Inject include statement at the correct place
       inject_into_class "app/controllers/application_controller.rb", "ApplicationController", <<~RUBY
         include AuthenticationHelper
-      RUBY
-    end
-    
-    
-
-    def add_name_method_to_user
-      inject_into_class "app/models/user.rb", User, <<-RUBY
-    
-      def name
-        email_address
-      end
-    
       RUBY
     end
   end
