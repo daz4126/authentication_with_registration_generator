@@ -1,4 +1,4 @@
-# RegistrationGenerator
+# Authentication With Registration Generator
 
 A Rails Generator that adds registration pages to the Authentication Generator as well as some useful routes and helper methods.
 

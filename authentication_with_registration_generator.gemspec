@@ -1,10 +1,10 @@
 Gem::Specification.new do |spec|
-  spec.name          = "registration_generator"
-  spec.version       = "0.6.0"
+  spec.name          = "authentication_with_registration_generator"
+  spec.version       = "0.2.0"
   spec.authors       = ["DAZ"]
   spec.email         = ["darren.jones@hey.com"]
 
-  spec.summary       = "A Rails generator for user registration"
+  spec.summary       = "A Rails generator for user authenticatin with extra registration pages, routes and helpers"
   spec.description   = "This gem provides a Rails generator to create a registration form and related files."
   spec.homepage      = "https://github.com/your_username/registration_generator"
   spec.license       = "MIT"
