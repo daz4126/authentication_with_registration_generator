@@ -7,3 +7,7 @@
 ## [0.2.0] - 2025-02-24
 
 - Fixed helper methods by not using link_to and button_to helper methods
+
+## [0.3.0] - 2025-02-24
+
+- changed the name of the generator to authentication to override the current built-in auth generator

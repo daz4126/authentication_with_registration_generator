@@ -1,8 +1,8 @@
 # lib/generators/registration/registration_generator.rb
 require "rails/generators"
 
-module AuthenticationWithRegistration
-  class AuthenticationWithRegistration < Rails::Generators::Base
+module Authentication
+  class Authentication < Rails::Generators::Base
     source_root File.expand_path("templates", __dir__)
 
     def run_auth_generator

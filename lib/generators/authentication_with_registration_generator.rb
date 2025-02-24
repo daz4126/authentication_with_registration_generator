@@ -2,7 +2,7 @@
 
 require_relative "registration_generator/version"
 
-module AuthenticationWithRegistrationGenerator
+module AuthenticationGenerator
   class Error < StandardError; end
   # Your code goes here...
 end

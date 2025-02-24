@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-module AuthenticationWithRegistrationGenerator
-  VERSION = "0.2.0"
+module AuthenticationGenerator
+  VERSION = "0..0"
 end

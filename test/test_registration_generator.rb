@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 require "test_helper"
 require "rails/generators"
-require "generators/authentication_with_registration/authentication_with_registration_generator"
+require "generators/authentication/authentication_generator"
 
-class TestAuthenticationWithRegistrationGenerator < Minitest::Test
-  tests AuthenticationWithRegistration::AuthenticationWithRegistration
+class TestAuthenticationGenerator < Minitest::Test
+  tests Authentication::Authentication
   destination File.expand_path("../../tmp", __dir__)  # Isolated test directory
   setup :prepare_destination
 
