@@ -10,7 +10,6 @@ module Authentication
         invoke "rails:authentication"
       end
     end
-    
 
     def create_view
       template "registration_form.html.erb", "app/views/registrations/new.html.erb"
@@ -31,10 +30,10 @@ module Authentication
       session_view_path = "app/views/sessions/new.html.erb"
   
       # Check if the file exists before modifying it
-      if File.exists?(session_view_path)
+      if File.exist?(session_view_path)
         # Replace the "Forgot password?" link with the new links
         gsub_file session_view_path, /<br>\s*<%= link_to "Forgot password\?", new_password_path %>/ do |match|
-          "<p>\n  <%= link_to 'Forgot password?', new_password_path %> | \n  <%= link_to 'No Account? Register here', new_registration_path %>\n</p>"
+          "<p>\n  <%%= link_to 'Forgot password?', new_password_path %> | \n  <%= link_to 'No Account? Register here', new_registration_path %>\n</p>"
         end
       else
         # If the file doesn't exist, handle it accordingly (e.g., raise an error or create the file)
@@ -48,16 +47,14 @@ module Authentication
     
           def link_to_sign_in_or_out
             if authenticated?
-              authenticity_token = form_authenticity_token
-              action_url = sign_out_path
               # Return the form as a string
-              "<form class=\"button_to\"  action=\"#{action_url}\" accept-charset=\"UTF-8\" method=\"post\">
+              "<form class=\"button_to\" action=\"\#{sign_out_path}\" accept-charset=\"UTF-8\" method=\"post\">
                 <input type=\"hidden\" name=\"_method\" value=\"delete\" autocomplete=\"off\" />
                 <button type=\"submit\">Sign Out</button>
-                <input type=\"hidden\" name=\"authenticity_token\" value=\"#{authenticity_token}\" autocomplete=\"off\" />
+                <input type=\"hidden\" name=\"authenticity_token\" value=\"\#{form_authenticity_token}\" autocomplete=\"off\" />
               </form>".html_safe
             else
-              "<a href=\"#{sign_in_path}\">Sign In</a>".html_safe
+              "<a href=\"\#{sign_in_path}\">Sign In</a>".html_safe
             end
           end 
     

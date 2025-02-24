@@ -11,3 +11,15 @@
 ## [0.3.0] - 2025-02-24
 
 - changed the name of the generator to authentication to override the current built-in auth generator
+
+## [0.3.1] - 2025-02-24
+
+- changed some filenames
+
+## [0.3.2] - 2025-02-24
+
+- fixing method call mistake
+
+## [0.3.2=3] - 2025-02-24
+
+- fixing methods
