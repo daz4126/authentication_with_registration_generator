@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name          = "registration_generator"
-  spec.version       = "0.4.0"
+  spec.version       = "0.6.0"
   spec.authors       = ["DAZ"]
   spec.email         = ["darren.jones@hey.com"]
 

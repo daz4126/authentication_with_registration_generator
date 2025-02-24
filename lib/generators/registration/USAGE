@@ -8,3 +8,5 @@ Example:
         regisistration routes
         new registration view
         registrations controller
+        link_to_sign_in_or_out helper method
+        show_user_if_signed_in helper method
