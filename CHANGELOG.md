@@ -20,6 +20,10 @@
 
 - fixing method call mistake
 
-## [0.3.2=3] - 2025-02-24
+## [0.3.3] - 2025-02-24
 
 - fixing methods
+
+## [0.3.4] - 2025-02-24
+
+- adding helper methods properly

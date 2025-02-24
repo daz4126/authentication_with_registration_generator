@@ -68,7 +68,7 @@ module Authentication
       end
     
       inject_into_file "app/controllers/concerns/authentication.rb", after: ":authenticated?" do
-        ", helper_method :link_to_sign_in_or_out, :show_user_if_signed_in"
+        ", :link_to_sign_in_or_out, :show_user_if_signed_in"
       end
     end
     
