@@ -10,6 +10,8 @@ A Rails Generator that adds registration pages to the Authentication Generator a
 * Adds a `link_to_sign_in_or_out` helper that will display a sign out or sign in link depending on if a user is authenticated or not
 * Adds a `show_user_if_signed_in` method that displays a "signed in as username" message if the user is signed in
 
+Much of this was based on [this excellent tutorial](https://www.rubanonrails.com/courses/rails-cookie-authentication/lessons/introduction) by [@alexandreruban](https://github.com/alexandreruban) that will help you understand how the Authentication Generator works.
+
 ## Installation
 
 Install the gem and add to the application's Gemfile by executing:
@@ -18,12 +20,12 @@ Install the gem and add to the application's Gemfile by executing:
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
-    $ gem install registration_generator
+    $ gem install authentication_with_registration_generator
 
 ## Usage
 
 ```bash
-rails generate registration
+rails generate authentication
 ```
 
 ## Development
