@@ -6,7 +6,7 @@ A Rails Generator that adds registration pages to the Authentication Generator a
 * Adds a registration page which will create a new user with an email address and password.
 * Adds a link to the registration page on the sign_in page
 * Adds `new_registration_path` and `registration_path` routes
-* Adds '/sign_in' and '/sign_out' routes as alias to '/session/new' and 'session', these can be accessed using the `sign_in_path` and `sign_out_path, method: :delete` helpers
+* Adds '/sign_in' and '/sign_out' routes as alias to '/session/new' and 'session', these can be accessed using the `sign_in_path` and `sign_out_path` helpers
 * Adds a `link_to_sign_in_or_out` helper that will display a sign out or sign in link depending on if a user is authenticated or not
 * Adds a `show_user_if_signed_in` method that displays a "signed in as username" message if the user is signed in
 
