@@ -27,3 +27,11 @@
 ## [0.3.4] - 2025-02-24
 
 - adding helper methods properly
+
+## [0.3.5] - 2025-02-24
+
+- escaping double quotes in helper methods
+
+## [0.3.6] - 2025-02-24
+
+- more fixes for helpers

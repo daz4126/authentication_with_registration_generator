@@ -33,7 +33,7 @@ module Authentication
       if File.exist?(session_view_path)
         # Replace the "Forgot password?" link with the new links
         gsub_file session_view_path, /<br>\s*<%= link_to "Forgot password\?", new_password_path %>/ do |match|
-          "<p>\n  <%%= link_to 'Forgot password?', new_password_path %> | \n  <%= link_to 'No Account? Register here', new_registration_path %>\n</p>"
+          "<p>\n  <%= link_to 'Forgot password?', new_password_path %> | \n  <%= link_to 'No Account? Register here', new_registration_path %>\n</p>"
         end
       else
         # If the file doesn't exist, handle it accordingly (e.g., raise an error or create the file)
@@ -48,13 +48,13 @@ module Authentication
           def link_to_sign_in_or_out
             if authenticated?
               # Return the form as a string
-              "<form class=\"button_to\" action=\"\#{sign_out_path}\" accept-charset=\"UTF-8\" method=\"post\">
-                <input type=\"hidden\" name=\"_method\" value=\"delete\" autocomplete=\"off\" />
-                <button type=\"submit\">Sign Out</button>
-                <input type=\"hidden\" name=\"authenticity_token\" value=\"\#{form_authenticity_token}\" autocomplete=\"off\" />
+              "<form class=\\"button_to\\" action=\\"\#{sign_out_path}\\" accept-charset=\\"UTF-8\\" method=\\"post\\">
+                <input type=\\"hidden\\" name=\\"_method\\" value=\\"delete\\" autocomplete=\\"off\\" />
+                <button type=\\"submit\\">Sign Out</button>
+                <input type=\\"hidden\\" name=\\"authenticity_token\\" value=\\"\#{form_authenticity_token}\\" autocomplete=\\"off\\" />
               </form>".html_safe
             else
-              "<a href=\"\#{sign_in_path}\">Sign In</a>".html_safe
+              "<a href=\\"\#{sign_in_path}\\">Sign In</a>".html_safe
             end
           end 
     
