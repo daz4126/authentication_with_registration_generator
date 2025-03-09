@@ -16,7 +16,7 @@ Much of this was based on [this excellent tutorial](https://www.rubanonrails.com
 
 Install the gem and add to the application's Gemfile by executing:
 
-    $ bundle add registration_generator
+    $ bundle add authentication_with_registration_generator
 
 If bundler is not being used to manage dependencies, install the gem by executing:
 
