@@ -15,8 +15,10 @@ module Authentication
       user_model_path = "app/models/user.rb"
   
       # Check if the validation already exists to prevent duplication
-      if File.readlines(user_model_path).grep(/validates_uniqueness_of :email_address/).empty?
-        inject_into_class user_model_path, User, "  validates :email_address, uniqueness: true\n"
+      if File.exist?(user_model_path)
+        if File.readlines(user_model_path).grep(/validates.*:email_address.*uniqueness/).empty?
+          inject_into_class user_model_path, "User", "  validates :email_address, uniqueness: true\n"
+        end
       end
     end
 

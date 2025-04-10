@@ -35,3 +35,7 @@
 ## [0.3.6] - 2025-02-24
 
 - more fixes for helpers
+
+## [0.4.1] - 2025-04-10
+
+- fix injecting into User
